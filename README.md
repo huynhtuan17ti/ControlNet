@@ -1,4 +1,4 @@
-# ControlNet 1.0 python interface
+# ControlNet 1.0 bash interface
 
 Example
 

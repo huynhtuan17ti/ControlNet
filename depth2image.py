@@ -75,7 +75,7 @@ num_samples = rt_args.num_sample
 strength = 1.0
 guess_mode = False
 detect_resolution = 256
-ddim_steps = 20
+ddim_steps = rt_args.steps
 scale = 9.0
 seed = random.randint(1, 2147483647)
 eta = 0
@@ -85,4 +85,6 @@ n_prompt = 'longbody, lowres, bad anatomy, bad hands, missing fingers, extra dig
 results = process(input_image, prompt, a_prompt, n_prompt, num_samples, image_resolution, detect_resolution, ddim_steps, guess_mode, strength, scale, seed, eta)
 
 for id, img in enumerate(results):
-    cv2.imwrite(f'{rt_args.output_folder}/image_{id}.png', img)
+    output_image_path = f'{rt_args.output_folder}/{rt_args.prefix_output}_image_{id}.png'
+    cv2.imwrite(output_image_path, img)
+    print(f"Saving result {id} at {output_image_path}.")
